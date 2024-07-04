@@ -1,0 +1,7 @@
+.footer{
+    background-color:rgb(92, 69, 40);
+
+}
+.footer p:hover{
+    color: bisque;
+}
