@@ -21,6 +21,9 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.navbar-brand:hover{
+  border: none !important;
+}
 
 .navbar .navbar-toggler {
   border: none;
@@ -41,7 +44,9 @@ body {
 .navbar .navbar-nav .nav-item .nav-link:hover {
   color: #3d3720f6;
 }
-
+a:hover {
+  border-bottom: 4px solid #a09048da;
+}
 .navbar .navbar-nav .nav-item .user-png {
   width: 30px;
   height: 30px;
@@ -82,11 +87,11 @@ body {
   font-weight: 600;
 }
 @media (min-width: 993px) {
-.btn-nav:hover {
-  background-color: #72745d;
-  color: #d5db81 !important;
-  padding: auto;
-}
+  .btn-nav:hover {
+    background-color: #72745d;
+    color: #d5db81 !important;
+    padding: auto;
+  }
 }
 .navbar-collapse {
   z-index: 1000;

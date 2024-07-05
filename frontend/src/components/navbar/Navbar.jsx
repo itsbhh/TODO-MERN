@@ -1,18 +1,20 @@
 import React from "react";
 import "./Navbar.css";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <b>
               <BsFillJournalBookmarkFill />
               &nbsp;TaskTrek
             </b>
-          </a>
+          </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -27,46 +29,46 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/about">
                   About Us
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/create">
                   Create
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active btn-nav "
                   aria-current="page"
-                  href="#"
+                  to="/signin"
                 >
                   Sign In
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active  btn-nav"
                   aria-current="page"
-                  href="#"
+                  to="/signup"
                 >
                   Sign Up
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active  btn-nav"
                   aria-current="page"
-                  href="#"
+                  to="#"
                 >
                   Log Out
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
