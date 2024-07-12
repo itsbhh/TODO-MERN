@@ -2,8 +2,10 @@ import React from "react";
 import "./Navbar.css";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
@@ -34,42 +36,61 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/about">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/about"
+                >
                   About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/create">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/create"
+                >
                   Create
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active btn-nav "
-                  aria-current="page"
-                  to="/signin"
-                >
-                  Sign In
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active  btn-nav"
-                  aria-current="page"
-                  to="/signup"
-                >
-                  Sign Up
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active  btn-nav"
-                  aria-current="page"
-                  to="#"
-                >
-                  Log Out
-                </Link>
-              </li>
+
+              {!isLoggedIn && (
+                <>
+                  <li className="nav-item">
+                    {" "}
+                    <Link
+                      className="nav-link active btn-nav "
+                      aria-current="page"
+                      to="/signin"
+                    >
+                      Sign In
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link active  btn-nav"
+                      aria-current="page"
+                      to="/signup"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+              )}
+              {isLoggedIn && (
+                <>
+                  {" "}
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link active  btn-nav"
+                      aria-current="page"
+                      to="#"
+                    >
+                      Log Out
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

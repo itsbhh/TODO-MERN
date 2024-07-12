@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 const Signup = () => {
+  const history =useNavigate();
+  const [Inputs, setInputs] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
+
+  const change = (e) => {
+    const { name, value } = e.target;
+    setInputs({ ...Inputs, [name]: value });
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (Inputs.email.trim() !== "" && Inputs.username.trim() !== "" && Inputs.password.trim() !== "") {
+        submit();
+      }
+    }
+  };
+  const submit = async (e) => {
+    e.preventDefault();
+    await axios
+      .post("http://localhost:1000/api/v1/register", Inputs)
+      .then((response) => {
+        if (response.data.message === "User Already Exists"){
+          alert(response.data.message);
+      } else{
+        alert(response.data.message);
+        setInputs({ email: "", username: "", password: "" });
+      history("/signin");}
+      });
+
+  };
   return (
     <div className="signup">
       <div className="container ">
@@ -17,6 +52,8 @@ const Signup = () => {
                 name="email"
                 placeholder="Enter Your Email"
                 required
+                onChange={change}
+                value={Inputs.email}
               />
               <input
                 className="p-2 my-3"
@@ -24,6 +61,8 @@ const Signup = () => {
                 name="username"
                 placeholder="Enter Your Username"
                 required
+                onChange={change}
+                value={Inputs.username}
               />
 
               <input
@@ -32,8 +71,13 @@ const Signup = () => {
                 name="password"
                 placeholder="Enter Your Password"
                 required
+                onChange={change}
+                value={Inputs.password}
+                onKeyPress={handleKeyPress}
               />
-              <button className="btn-signup p-2 my-3">Sign Up</button>
+              <button className="btn-signup p-2 my-3" onClick={submit}  disabled={Inputs.email.trim() === "" || Inputs.username.trim() === ""|| Inputs.password.trim() === ""}>
+                Sign Up
+              </button>
             </div>
           </div>
           <div
