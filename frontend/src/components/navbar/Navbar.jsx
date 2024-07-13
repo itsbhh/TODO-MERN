@@ -3,9 +3,17 @@ import "./Navbar.css";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const logout =()=>{
+    sessionStorage.clear("id");
+    dispatch(authActions.logout());
+
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
@@ -80,7 +88,7 @@ const Navbar = () => {
               {isLoggedIn && (
                 <>
                   {" "}
-                  <li className="nav-item">
+                  <li className="nav-item"    onClick={logout}>
                     <Link
                       className="nav-link active  btn-nav"
                       aria-current="page"
@@ -88,7 +96,7 @@ const Navbar = () => {
                     >
                       Log Out
                     </Link>
-                  </li>
+                    </li>
                 </>
               )}
             </ul>

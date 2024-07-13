@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Signin.css";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store";
 const Signin = () => {
-  const history =useNavigate();
+  const dispatch = useDispatch();
+  const history = useNavigate();
   const [Inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -26,14 +28,11 @@ const Signin = () => {
     await axios
       .post("http://localhost:1000/api/v1/signin", Inputs)
       .then((response) => {
-        if (response.data.message === "User Already Exists"){
-          alert(response.data.message);
-      } else{
-        alert(response.data.message);
-        setInputs({ email: "",  password: "" });
-      history("/create");}
+        sessionStorage.setItem("id", response.data.others._id);
+        dispatch(authActions.login());
+        history("/create");
       });
-    };
+  };
   return (
     <div className="signin">
       <div className="container ">
@@ -72,7 +71,15 @@ const Signin = () => {
                 onChange={change}
                 onKeyPress={handleKeyPress}
               />
-              <button className="btn-signin p-2 my-3 "  disabled={Inputs.email.trim() === "" || Inputs.password.trim() === ""}onClick={submit}>Sign In</button>
+              <button
+                className="btn-signin p-2 my-3 "
+                disabled={
+                  Inputs.email.trim() === "" || Inputs.password.trim() === ""
+                }
+                onClick={submit}
+              >
+                Sign In
+              </button>
             </div>
           </div>
         </div>
