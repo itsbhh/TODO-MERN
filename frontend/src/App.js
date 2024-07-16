@@ -8,7 +8,7 @@ import Signup from "./components/signup/Signup";
 import Signin from "./components/signin/Signin";
 import Create from "./components/create/Create";
 import { useDispatch } from "react-redux";
-import { authActions } from "../store";
+import { authActions } from "./store";
 
 const App = () => {
   const dispatch = useDispatch();
