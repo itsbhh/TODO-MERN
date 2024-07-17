@@ -39,15 +39,16 @@
     font-size: 1rem;
     cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border-bottom: 0 !important;
   }
   
   .home-btn:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    transform: translateY(-8px);
     background-color: #61572bda; 
     color: white;
+    border-bottom: 0px solid #a09048da !important;
   }
-  
   @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
@@ -83,4 +84,7 @@
       font-size: 0.5rem !important; 
       margin-bottom: 1rem !important; 
     }
+  }
+  Link{
+    text-decoration: none !important;
   }

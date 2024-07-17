@@ -110,28 +110,67 @@
 .card-icon{
   padding: 10px;
 }
-.todo-card{
-  border: 2px solid rgb(138, 82, 101);  
+.todo-card {
+  border: 2px solid rgb(138, 82, 101);
   border-radius: 18px;
   box-shadow: 0 20px 10px rgba(68, 63, 42, 0.219);
   background-color: #bcbea3;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  width: 350px;
-  height: 170px;
+  width: 100%;
+  min-height: 190px;
+  max-height: auto !important;
   margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
-.todo-card:hover{
+
+.todo-card:hover {
   background: rgba(218, 190, 190, 0.575);
-  padding: auto;
   box-shadow: 0 20px 10px rgba(68, 63, 42, 0.76);
   transform: translateY(-10px);
   cursor: pointer;
-  
 }
-.todo-body{
+
+.check input {
+  margin-top: 20px;
+  margin-left: 0% !important;
+  width: 40px !important;
+  height: 20px !important;
+}
+
+.check {
+  flex-direction: row !important;
+  margin-left: 0 !important;
+  padding-left: 0% !important;
+  margin-bottom: 0% !important;
+  padding-bottom: 0% !important;
+}
+
+.todo-body {
   margin-top: 3%;
   margin-bottom: 8%;
 }
+
+@media (max-width: 768px) {
+  .todo-card {
+    width: 100%;
+    min-height:260px;
+    margin: 10px 0;
+    padding: 15px;
+  }
+  .card-icon-head{
+    margin-bottom: -10px !important;
+  }
+  p{
+    font-size: 14px !important;
+  }
+
+  .check input {
+    width: 30px !important;
+  }
+}
+
 .container-fluid {
   padding: 10px;
 }
@@ -169,7 +208,8 @@
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .btn-update {
-  width: 20%;
+ min-width: 20%;
+ max-width: 100%;
   margin-top: 30px !important;
   margin-left:0px ;
   padding: 10px;
@@ -199,20 +239,22 @@
 }
 .update {
   width: 100%;
- min-height: 100vh;
- max-height: auto;
+ height: 90vh;
+
 }
+
 .update input {
   border: none;
   outline: none;
-  width: 40%;
+ width: 40%;
   margin-bottom: 30px !important;
 }
 .update textarea {
   border: none;
   outline: none;
   width: 100%;
-  height: 120px !important;
+  min-height: 120px !important;
+  max-height: 200px !important;
   resize: none
 }
 .updates {
@@ -221,8 +263,11 @@
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.596);
   width: 80%;
-  height: 500px;
+  min-height: 400px;
+  max-height: 600px;
   display: flex;
-  margin-top: 6%;
+  margin-top: 5%;
 }
-
+h3{
+  margin-bottom: 30px !important;
+}

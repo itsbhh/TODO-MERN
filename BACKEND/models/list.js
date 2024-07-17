@@ -8,10 +8,16 @@ const listSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isChecked: {
+    type: Boolean,
+    default: false  
+  },
   user: [{
     type:mongoose.Types.ObjectId,
     ref: "User",
   },
+  
 ],
+ 
 });
 module.exports = mongoose.model("List", listSchema);

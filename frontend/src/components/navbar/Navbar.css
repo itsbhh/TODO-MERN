@@ -44,7 +44,7 @@ body {
 .navbar .navbar-nav .nav-item .nav-link:hover {
   color: #3d3720f6;
 }
-a:hover {
+.active:hover {
   border-bottom: 4px solid #a09048da;
 }
 .navbar .navbar-nav .nav-item .user-png {
