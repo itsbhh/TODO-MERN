@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../../store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const Signin = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -13,20 +14,23 @@ const Signin = () => {
     email: "",
     password: "",
   });
+
   const change = (e) => {
     const { name, value } = e.target;
     setInputs({ ...Inputs, [name]: value });
   };
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       if (Inputs.email.trim() !== "" && Inputs.password.trim() !== "") {
-        submit();
+        submit(e);
       }
     }
   };
+
   const submit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     try {
       const response = await axios.post("http://localhost:1000/api/v1/signin", Inputs);
       sessionStorage.setItem("id", response.data.others._id);
@@ -38,25 +42,18 @@ const Signin = () => {
       toast.info("Email or Password Incorrect!");
     }
   };
+
   return (
     <div className="signin">
-        <ToastContainer />
-      <div className="container ">
+      <ToastContainer />
+      <div className="container">
         <div className="row">
-          <div
-            className="col-lg-4 column colum col-left d-flex
-                justify-content-center
-                align-items-center"
-          >
+          <div className="col-lg-4 column colum col-left d-flex justify-content-center align-items-center">
             <div className="image">
-              <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRj7yLJ4cfaeJqXG7Ye8eTQNAsOr4C9p64nZF53vLNZEUTavYOS"></img>
+              <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRj7yLJ4cfaeJqXG7Ye8eTQNAsOr4C9p64nZF53vLNZEUTavYOS" alt="signin" />
             </div>
           </div>
-          <div
-            className="col-lg-8 column  d-flex
-                justify-content-center
-                align-items-center"
-          >
+          <div className="col-lg-8 column d-flex justify-content-center align-items-center">
             <div className="form">
               <input
                 className="p-2 my-3"
@@ -78,10 +75,8 @@ const Signin = () => {
                 onKeyPress={handleKeyPress}
               />
               <button
-                className="btn-signin p-2 my-3 "
-                disabled={
-                  Inputs.email.trim() === "" || Inputs.password.trim() === ""
-                }
+                className="btn-signin p-2 my-3"
+                disabled={Inputs.email.trim() === "" || Inputs.password.trim() === ""}
                 onClick={submit}
               >
                 Sign In
