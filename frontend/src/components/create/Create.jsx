@@ -5,11 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Edit from "./Edit";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { authActions} from "../../store/index";
 
 const Create = () => {
-    const dispatch = useDispatch();
     
   const [Inputs, setInputs] = useState({ title: "", body: "" });
   const [Array, setArray] = useState([]);
@@ -108,11 +105,6 @@ const Create = () => {
     fetchTasks();
   };
 
-    const handleLogout = () => {
-      dispatch(authActions.logout());
-     
-  setArray([]);
-  };
 
   useEffect(() => {
     setId(sessionStorage.getItem("id"));

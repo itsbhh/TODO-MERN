@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const history = useNavigate();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const logout =()=>{
     sessionStorage.clear("id");
     dispatch(authActions.logout());
+    history("/about");
 
   }
   return (

@@ -67,7 +67,7 @@ const Edit = ({ display, update, onUpdateSuccess }) => {
             name="body"
             onChange={change}
           />
-          <div className="w-100 d-flex align-items-start">
+          <div className="w-100 d-flex align-items-start upd">
             <button className="btn-update p-2 my-3" onClick={submit}>
               Update
             </button>

@@ -24,8 +24,9 @@
   .para {
     font-size: 1rem;
     margin-bottom: 2rem;
-    white-space: nowrap;
-    overflow: hidden;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    overflow-wrap: "break-word"!important;
     animation: typing 5s steps(60, end) 1s 1 normal both, blink-caret 0.75s step-end infinite;
     color: #0000008e;
   }
@@ -80,9 +81,9 @@
       margin-bottom: 0.5rem !important; 
     }
   
-    p {
+    .para {
       font-size: 0.5rem !important; 
-      margin-bottom: 1rem !important; 
+      margin-bottom: 1.5rem !important; 
     }
   }
   Link{
