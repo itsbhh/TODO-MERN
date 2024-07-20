@@ -5,7 +5,8 @@
     "express": "^4.19.2",
     "mongoose": "^8.4.4",
     "node": "^20.15.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7"
   },
   "name": "todo-mern",
   "version": "1.0.0",
