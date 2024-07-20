@@ -8,10 +8,8 @@
     "routes": [
       {
         "src": "/.*",
-        "dest": "app.js"
+        "dest": "/"
       }
-    ],
-     "rewrites": [
-    { "src": "/(.*)", "dest": "/" }
+    ]
   ]
   }
