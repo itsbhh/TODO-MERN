@@ -1,7 +1,6 @@
 .signup {
   width: 100%;
-  min-height: 100vh;
-  max-height: 150vh;
+  height: 150vh;
 }
 .column {
   height: 100vh !important;
