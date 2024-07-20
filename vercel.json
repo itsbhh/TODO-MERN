@@ -5,11 +5,10 @@
         "use": "@vercel/node"
       }
     ],
-    "routes": [
-      { "handle": "filesystem" },
+    "routes": 
   {
-        "src": "/.*",
-        "dest": "/app.js"
+        "src": "/(.*)",
+        "dest": "app.js"
       }
   
   ]
